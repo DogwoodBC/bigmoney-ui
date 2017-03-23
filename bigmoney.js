@@ -1,6 +1,5 @@
 import Vue from "vue";
 
-var stagingURL = "http://bigmoney-staging.bhga6ezash.us-west-2.elasticbeanstalk.com/";
 var localURL = "http://localhost:8000/";
 var endpoint = "api/donations/";
 var queryData = {
@@ -14,7 +13,6 @@ $.getJSON(localURL+endpoint, queryData)
   .fail((err) => {
     console.log(err);
   });
-
 
   new Vue({
     el: '#test',
