@@ -14,9 +14,9 @@ $.getJSON(localURL+donationsEndpoint, donationsQuery)
     console.log(err);
   });
 
-  new Vue({
-    el: '#test',
-    data: {
-      message: "This is a test!",
-    }
-  });
+new Vue({
+  el: '#test',
+  data: {
+    message: "This is a test"
+  }
+});
