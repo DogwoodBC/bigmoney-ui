@@ -7,30 +7,24 @@ var donationsQuery = {
                   min: '2500'
                 };
 var contributorsQuery = {
+                  ordering: '-contributions_total',
                   limit: '10'
                 };
 
-$.getJSON(localURL+donationsEndpoint, donationsQuery)
+Vue.component('contributor', {
+  template: "#contributor-template",
+  props: ['contributor']
+});
+
+$.getJSON(localURL+contributorsEndpoint, contributorsQuery)
   .done((data) => {
-    document.getElementById('results').innerHTML = JSON.stringify(data, undefined, 2);
+    new Vue({
+      el: '#contributors-list',
+      data: {
+        contributors: data.results
+      }
+    });
   })
   .fail((err) => {
     console.log(err);
   });
-
-new Vue({
-  el: '#test',
-  data: {
-    message: "This is a test"
-  }
-});
-
-
-var topTen = $.getJSON(localURL+contributorsEndpoint, contributorsQuery);
-
-new Vue({
-  el: '#topTen',
-  data: {
-    topTen: topTen
-  }
-});

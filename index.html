@@ -49,9 +49,26 @@
           <div class="col-md-10 col-md-offset-1">
             <div class="content-container">
               <div class="secondary-content">
-                <p id="test">{{ message }}</p>
-                <p id="topTen">{{ topTen }}</p>
-                <pre id="results"></pre>
+
+                <h2>BC's Top Ten Political Donors</h4>
+
+                <div id="contributors-list">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Contributor Name</th>
+                        <th>Individual</th>
+                        <th>Company</th>
+                        <th>Total Donations</th>
+                        <th>Number of Donations</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr is="contributor" v-for="contributor in contributors" :contributor="contributor"></tr>
+                    </tbody>
+                  </table>
+                </div>
+
               </div>
             </div>
           </div>
@@ -70,6 +87,17 @@
       </div>
     </footer>
   </div>
+
+  <template id="contributor-template">
+    <tr>
+      <td>{{ contributor.individual ? contributor.individual.name : contributor.organization.name }}</td>
+      <td>{{ !!contributor.individual ? 'Yes' : 'No' }}</td>
+      <td>{{ !!contributor.organization ? 'Yes' : 'No' }}</td>
+      <td>{{ contributor.contributions_total }}</td>
+      <td>{{ contributor.contributions_count }}</td>
+    </tr>
+  </template>
+
 </body>
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js?ver=1.0"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js?ver=1.0"></script>
