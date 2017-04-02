@@ -17,5 +17,6 @@ module.exports = {
     alias: {
       vue: 'vue/dist/vue.js'
     }
-  }
+  },
+  devtool: 'source-map'
 };

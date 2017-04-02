@@ -57,8 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# Webpack-related files
 # Compiled ES5 script
 bigmoneyES5.js
+# Source-mapping files for debugging
+*.js.map
 
 # jshint linter config
 .jshintrc
