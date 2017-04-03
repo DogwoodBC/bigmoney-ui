@@ -57,10 +57,10 @@
                     <thead>
                       <tr>
                         <th>Contributor Name</th>
-                        <th>Individual</th>
-                        <th>Company</th>
-                        <th>Total Donations</th>
-                        <th>Number of Donations</th>
+                        <th class="text-right">Individual</th>
+                        <th class="text-right">Company</th>
+                        <th class="text-right">Total Donations</th>
+                        <th class="text-right">Number of Donations</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -91,10 +91,10 @@
   <template id="contributor-template">
     <tr>
       <td>{{ contributor.individual ? contributor.individual.name : contributor.organization.name }}</td>
-      <td>{{ !!contributor.individual ? 'Yes' : 'No' }}</td>
-      <td>{{ !!contributor.organization ? 'Yes' : 'No' }}</td>
-      <td>{{ contributor.contributions_total }}</td>
-      <td>{{ contributor.contributions_count }}</td>
+      <td class="text-right">{{ !!contributor.individual ? 'Yes' : 'No' }}</td>
+      <td class="text-right">{{ !!contributor.organization ? 'Yes' : 'No' }}</td>
+      <td class="text-right">{{ contributor.contributions_total | currency }}</td>
+      <td class="text-right">{{ contributor.contributions_count }}</td>
     </tr>
   </template>
 
