@@ -18,9 +18,9 @@ Vue.component('contributor', {
 
 Vue.filter('currency',  function(value) {
   value = value.toString();
-  var withDecimal = /(\.)/g.test(value) ? value : value + '.00'
+  var withDecimal = /(\.)/g.test(value) ? value : value + '.00';
   var formatted = withDecimal.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-  return '$' + formatted
+  return '$' + formatted;
 });
 
 $.getJSON(localURL+contributorsEndpoint, contributorsQuery)
@@ -31,7 +31,7 @@ $.getJSON(localURL+contributorsEndpoint, contributorsQuery)
         contributors: data.results
         },
       }
-    });
+    );
   })
   .fail((err) => {
     console.log(err);
