@@ -1,4 +1,10 @@
 import Vue from "vue";
+import {contributorsBySize} from "./visualization.js";
+import {getContributors} from "./contributors-service.js"
+
+console.log(contributorsBySize);
+
+contributorsBySize(getContributors());
 
 var localURL = "http://localhost:8000/";
 var donationsEndpoint = "api/donations/";
