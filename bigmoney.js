@@ -1,8 +1,6 @@
 import Vue from "vue";
 
 var localURL = "http://localhost:8000/";
-var stagingURL = "bigmoney-staging.bhga6ezash.us-west-2.elasticbeanstalk.com";
-var endpoint = localURL;
 var donationsEndpoint = "api/donations/";
 var contributorsEndpoint = "api/contributors/";
 var donationsQuery = {
@@ -25,7 +23,7 @@ Vue.filter('currency',  function(value) {
   return '$' + formatted;
 });
 
-$.getJSON(endpoint+contributorsEndpoint, contributorsQuery)
+$.getJSON(localURL+contributorsEndpoint, contributorsQuery)
   .done((data) => {
     new Vue({
       el: '#contributors-list',
